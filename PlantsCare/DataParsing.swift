@@ -40,18 +40,19 @@ struct Response : Codable{
     
 }
 
-struct Article : Codable{
+struct Crop : Codable{
     
-    var title : String?
+    var name : String?
+    var scientific_names : String?
     var url : URL?
     var urlToImage : URL?
     
 }
 
 // add an extension to the article struct so that we can use an array of articles to dynamically create List.
-extension Article: Identifiable{
+extension Crop: Identifiable{
     
-    var id: String {return title!}
+    var id: String {return name!}
     
 }
 
