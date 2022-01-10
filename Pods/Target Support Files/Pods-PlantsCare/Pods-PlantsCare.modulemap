@@ -1,0 +1,6 @@
+module Pods_PlantsCare {
+  umbrella header "Pods-PlantsCare-umbrella.h"
+
+  export *
+  module * { export * }
+}

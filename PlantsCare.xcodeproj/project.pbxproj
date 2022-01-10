@@ -13,6 +13,7 @@
 		BCE955CC27847E2000C37ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE955CB27847E2000C37ECE /* Preview Assets.xcassets */; };
 		BCE955D727847E2000C37ECE /* PlantsCareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE955D627847E2000C37ECE /* PlantsCareTests.swift */; };
 		BCE955E227847E2000C37ECE /* PlantsCareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE955E127847E2000C37ECE /* PlantsCareUITests.swift */; };
+		F992A93376C109321D710145 /* libPods-PlantsCare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A517E2F21218A2E20F6577A /* libPods-PlantsCare.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6180F3DA68E6AC76E814AC23 /* Pods-PlantsCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsCare.release.xcconfig"; path = "Target Support Files/Pods-PlantsCare/Pods-PlantsCare.release.xcconfig"; sourceTree = "<group>"; };
+		9A517E2F21218A2E20F6577A /* libPods-PlantsCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlantsCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A623C6CCDBECDCE288264381 /* Pods-PlantsCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsCare.debug.xcconfig"; path = "Target Support Files/Pods-PlantsCare/Pods-PlantsCare.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE955C127847E1F00C37ECE /* PlantsCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE955C427847E1F00C37ECE /* PlantsCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsCareApp.swift; sourceTree = "<group>"; };
 		BCE955C627847E1F00C37ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F992A93376C109321D710145 /* libPods-PlantsCare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		004045E1BB279F0774CA3E53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A623C6CCDBECDCE288264381 /* Pods-PlantsCare.debug.xcconfig */,
+				6180F3DA68E6AC76E814AC23 /* Pods-PlantsCare.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BCE955B827847E1F00C37ECE = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +94,8 @@
 				BCE955D527847E2000C37ECE /* PlantsCareTests */,
 				BCE955E027847E2000C37ECE /* PlantsCareUITests */,
 				BCE955C227847E1F00C37ECE /* Products */,
+				004045E1BB279F0774CA3E53 /* Pods */,
+				FE2E239BC87750DA5EDD716E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +147,14 @@
 			path = PlantsCareUITests;
 			sourceTree = "<group>";
 		};
+		FE2E239BC87750DA5EDD716E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A517E2F21218A2E20F6577A /* libPods-PlantsCare.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCE955E627847E2000C37ECE /* Build configuration list for PBXNativeTarget "PlantsCare" */;
 			buildPhases = (
+				3641F69692CAEAFAB12943E8 /* [CP] Check Pods Manifest.lock */,
 				BCE955BD27847E1F00C37ECE /* Sources */,
 				BCE955BE27847E1F00C37ECE /* Frameworks */,
 				BCE955BF27847E1F00C37ECE /* Resources */,
@@ -253,6 +279,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3641F69692CAEAFAB12943E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlantsCare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCE955BD27847E1F00C37ECE /* Sources */ = {
@@ -414,6 +465,7 @@
 		};
 		BCE955E727847E2000C37ECE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A623C6CCDBECDCE288264381 /* Pods-PlantsCare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +487,7 @@
 		};
 		BCE955E827847E2000C37ECE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6180F3DA68E6AC76E814AC23 /* Pods-PlantsCare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
