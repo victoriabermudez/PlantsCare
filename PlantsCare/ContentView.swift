@@ -16,18 +16,20 @@ struct ContentView: View {
         NavigationView{
             
             List(fetchData.responses.crops){crop in
-                NavigationLink(destination: SwiftUIWebView(url: crop.url),
-                                label: {HStack{
-                                    KFImage(crop.urlToImage)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 100, height: 50, alignment: .center)
+                NavigationLink(destination: CropDetail(),
+                                label: {
+                                    //HStack{
+//                                    KFImage(crop.thumbnail_url)
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width: 100, height: 50, alignment: .center)
                                     Text(crop.name ?? "No Name")
-                                }})
+                                })
                 
             }
         }
     }
+}
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

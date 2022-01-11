@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D765149278DC1BC00157F1B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D765148278DC1BC00157F1B /* WebView.swift */; };
+		2D7DF526278DC97A00CD4504 /* CropDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7DF525278DC97A00CD4504 /* CropDetail.swift */; };
 		2DABDA5B278C67F00031991E /* DataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DABDA5A278C67F00031991E /* DataParsing.swift */; };
 		BCE955C527847E1F00C37ECE /* PlantsCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE955C427847E1F00C37ECE /* PlantsCareApp.swift */; };
 		BCE955C727847E1F00C37ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE955C627847E1F00C37ECE /* ContentView.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D765148278DC1BC00157F1B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		2D7DF525278DC97A00CD4504 /* CropDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropDetail.swift; sourceTree = "<group>"; };
 		2DABDA5A278C67F00031991E /* DataParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParsing.swift; sourceTree = "<group>"; };
 		6180F3DA68E6AC76E814AC23 /* Pods-PlantsCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsCare.release.xcconfig"; path = "Target Support Files/Pods-PlantsCare/Pods-PlantsCare.release.xcconfig"; sourceTree = "<group>"; };
 		9A517E2F21218A2E20F6577A /* libPods-PlantsCare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlantsCare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,7 @@
 				BCE955CD27847E2000C37ECE /* Info.plist */,
 				BCE955CA27847E2000C37ECE /* Preview Content */,
 				2DABDA5A278C67F00031991E /* DataParsing.swift */,
-				2D765148278DC1BC00157F1B /* WebView.swift */,
+				2D7DF525278DC97A00CD4504 /* CropDetail.swift */,
 			);
 			path = PlantsCare;
 			sourceTree = "<group>";
@@ -316,8 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DABDA5B278C67F00031991E /* DataParsing.swift in Sources */,
-				2D765149278DC1BC00157F1B /* WebView.swift in Sources */,
 				BCE955C727847E1F00C37ECE /* ContentView.swift in Sources */,
+				2D7DF526278DC97A00CD4504 /* CropDetail.swift in Sources */,
 				BCE955C527847E1F00C37ECE /* PlantsCareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

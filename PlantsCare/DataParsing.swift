@@ -44,8 +44,7 @@ struct Crop : Codable{
     
     var name : String?
     var scientific_name : String?
-    var url : URL?
-    var urlToImage : URL?
+    var thumbnail_url : URL?
     
 }
 
