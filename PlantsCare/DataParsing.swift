@@ -36,14 +36,14 @@ class FetchData : ObservableObject{
 struct Response : Codable{
     
     var totalResults : Int = 0
-    var articles : [Article] = [Article]()
+    var crops : [Crop] = [Crop]()
     
 }
 
 struct Crop : Codable{
     
     var name : String?
-    var scientific_names : String?
+    var scientific_name : String?
     var url : URL?
     var urlToImage : URL?
     

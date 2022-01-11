@@ -6,16 +6,33 @@
 //
 
 import SwiftUI
+import struct Kingfisher.KFImage
 
 struct ContentView: View {
+    
+    @StateObject var fetchData = FetchData()
+    
     var body: some View {
-        Text("Katie, world!")
-            .padding()
+        NavigationView{
+            
+            List(fetchData.responses.crops){crop in
+                NavigationLink(destination: SwiftUIWebView(url: crop.url),
+                                label: {HStack{
+                                    KFImage(crop.urlToImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100, height: 50, alignment: .center)
+                                    Text(crop.name ?? "No Name")
+                                }})
+                
+            }
+        }
+    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
