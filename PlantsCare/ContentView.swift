@@ -13,19 +13,24 @@ struct ContentView: View {
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        NavigationView{
-            
-            List(fetchData.responses.crops){crop in
-                NavigationLink(destination: CropDetail(),
-                                label: {
-                                    //HStack{
-//                                    KFImage(crop.thumbnail_url)
-//                                        .resizable()
-//                                        .aspectRatio(contentMode: .fit)
-//                                        .frame(width: 100, height: 50, alignment: .center)
-                                    Text(crop.name ?? "No Name")
-                                })
+        VStack {
+            VStack {
                 
+                //Crop name text
+                Text(crop.name ?? "No Name")
+                //Image
+                KFImage(crop.thumbnail_url)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 50, alignment: .center)
+            }
+            NavigationView {
+                
+                List(fetchData.responses.crops){crop in
+                    NavigationLink(destination: CropDetail(),
+                                    label: {})
+                   // NavigationLink(destination: CropDetail(info: )) --> add info in here i guess?
+                    
             }
         }
     }
