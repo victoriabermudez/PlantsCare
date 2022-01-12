@@ -43,7 +43,7 @@
 		A623C6CCDBECDCE288264381 /* Pods-PlantsCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsCare.debug.xcconfig"; path = "Target Support Files/Pods-PlantsCare/Pods-PlantsCare.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE955C127847E1F00C37ECE /* PlantsCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE955C427847E1F00C37ECE /* PlantsCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsCareApp.swift; sourceTree = "<group>"; };
-		BCE955C627847E1F00C37ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BCE955C627847E1F00C37ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = PlantsCare/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		BCE955C827847E2000C37ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCE955CB27847E2000C37ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCE955CD27847E2000C37ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

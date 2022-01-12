@@ -11,6 +11,7 @@ import struct Kingfisher.KFImage
 struct ContentView: View {
     
     @StateObject var fetchData = FetchData()
+    @State var crop = Crop()
     
     var body: some View {
         VStack {
@@ -28,7 +29,7 @@ struct ContentView: View {
                 
                 List(fetchData.responses.crops){crop in
                     NavigationLink(destination: CropDetail(),
-                                    label: {})
+                                   label: {})
                    // NavigationLink(destination: CropDetail(info: )) --> add info in here i guess?
                     
             }
