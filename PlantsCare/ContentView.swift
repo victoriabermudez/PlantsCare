@@ -18,7 +18,8 @@ struct ContentView: View {
             VStack {
                 
                 //Crop name text
-                Text(crop.name ?? "No Name")
+                Text(crop.name ?? "PlantsCare")
+                    .bold()
                 //Image
                 KFImage(crop.thumbnail_url)
                     .resizable()
