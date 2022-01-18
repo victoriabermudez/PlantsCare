@@ -29,7 +29,7 @@ struct ContentView: View {
             NavigationView {
                 
                 List(fetchData.responses.crops){crop in
-                    NavigationLink(destination: CropDetail(),
+                    NavigationLink(destination: CropDetail(crop: $crop),
                                    label: {HStack{
                                     KFImage(crop.thumbnail_url)
                                         .resizable()

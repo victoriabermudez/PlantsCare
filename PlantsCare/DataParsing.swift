@@ -44,7 +44,12 @@ struct Crop : Codable{
     
     var name : String?
     var scientific_name : String?
+    var has_photos: Bool?
     var thumbnail_url : URL?
+    var alternate_names: String? //this is rly inconsisteht...
+    var description: String?
+    var plantings_count: String? //
+    var harvests_count: String? //
     
 }
 
