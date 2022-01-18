@@ -11,20 +11,30 @@ class FetchData : ObservableObject{
     @Published var responses : Response = Response()
     
     init(){
-        guard let url = URL(string: "http://growstuff.org/crops.json") else {return}
+        guard let url = URL(string: "https://growstuff.org/crops.json") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             
-            guard let data = data else {return}
+            guard let data = data else {
+                print("no data")
+                return
+                
+            }
             
             guard let dataAsString = String(data: data, encoding: .utf8) else {return}
             
+            print(dataAsString)
+            //decoding
             let decoder = JSONDecoder()
             
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    print(self.responses.totalResults)
                 }
+            }
+            else{
+                print("data failed")
             }
             
             
@@ -35,8 +45,8 @@ class FetchData : ObservableObject{
 
 struct Response : Codable{
     
-    var totalResults : Int = 0
     var crops : [Crop] = [Crop]()
+    var totalResults : Int = 0
     
 }
 
