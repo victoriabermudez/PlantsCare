@@ -18,10 +18,10 @@ struct ContentView: View {
             VStack {
                 
                 //Crop name text
-                Text(crop.name ?? "PlantsCare")
+                Text(crop.name ?? "PlantCare")
                     .bold()
                 //Image
-                KFImage(crop.thumbnail_url)
+                KFImage(crop.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 50, alignment: .center)
@@ -31,7 +31,7 @@ struct ContentView: View {
                 List(fetchData.responses.crops){crop in
                     NavigationLink(destination: CropDetail(crop: $crop),
                                    label: {HStack{
-                                    KFImage(crop.thumbnail_url)
+                                    KFImage(crop.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 100, height: 50, alignment: .center)

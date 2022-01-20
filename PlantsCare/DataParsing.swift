@@ -11,7 +11,7 @@ class FetchData : ObservableObject{
     @Published var responses : Response = Response()
     
     init(){
-        guard let url = URL(string: "https://growstuff.org/crops.json") else {return}
+        guard let url = URL(string: "https://hp-api.herokuapp.com/api/characters") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             
@@ -53,13 +53,13 @@ struct Response : Codable{
 struct Crop : Codable{
     
     var name : String?
-    var scientific_name : String?
-    var has_photos: Bool?
-    var thumbnail_url : URL?
-    var alternate_names: String? //this is rly inconsisteht...
-    var description: String?
-    var plantings_count: String? //
-    var harvests_count: String? //
+    //var scientific_name : String?
+    //var has_photos: Bool?
+    var image : URL?
+    //var alternate_names: String? //this is rly inconsisteht...
+    //var description: String?
+    //var plantings_count: String? //
+    //var harvests_count: String? //
     
 }
 
