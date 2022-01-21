@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack {
                 
                 //Crop name text
-                Text(crop.name ?? "PlantCare")
+                Text(crop.name?? "PlantCare")
                     .bold()
                 //Image
                 KFImage(crop.image)
