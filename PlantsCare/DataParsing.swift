@@ -8,34 +8,44 @@ import Foundation
 
 class FetchData : ObservableObject{
     
-    var responses : Response = Response()
+    var responses : Response?
     
     init(){
         guard let url = URL(string: "https://hp-api.herokuapp.com/api/characters") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             
-            guard let data = data else {
+            guard var data = data else {
                 print("no data")
                 return
                 
             }
             
-            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+            // clean up the JSON so that it can be decoded!
+            // if you want to see what the structure looks like now, uncomment the line that
+            // says print(dataAsString) and paste the results in make json pretty, just
+            // don't include the stuff that prints before it.
+            guard var dataAsString = String(data: data, encoding: .utf8) else {return}
+            dataAsString = "{ \"people\" : " + dataAsString + "}"
+            //print()
+            //print(dataAsString)
             
-            print(dataAsString)
+            data = dataAsString.data(using: .utf8)!
+            
+            
             //decoding
             let decoder = JSONDecoder()
             
-            if let response = try? decoder.decode([[String: Response]].self, from: data) {
+            if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
-                    //self.responses = response[0]
-                    print(response)
+                    self.responses = response
+                    //print(response)
                 }
             }
             else{
-                print("data failed")
+                print("no data")
             }
+            
             
             
         }.resume()
@@ -45,14 +55,6 @@ class FetchData : ObservableObject{
 
 struct Response : Codable{
     var people : [Person] = [Person]()
-    
-//    init(from decoder: Decoder) throws {
-//        var container = try decoder.unkeyedContainer()
-//        people = try container.decode([Person].self)
-//    }
-//   // var crops : [Crop] = [Crop]()
-    //var totalResults : Int = 0
-    
 }
 
 struct Person : Codable{

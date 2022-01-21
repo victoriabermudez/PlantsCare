@@ -26,7 +26,7 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 50, alignment: .center)*/
             }
-            NavigationView {
+          /**  NavigationView {
                 
                 List(fetchData.responses.people){person in
                     NavigationLink(destination: CropDetail(person: person),
@@ -40,7 +40,7 @@ struct ContentView: View {
                    // NavigationLink(destination: CropDetail(info: )) --> add info in here i guess?
                     
             }
-        }
+        }*/
             
     }
 }
