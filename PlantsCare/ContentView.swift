@@ -11,31 +11,31 @@ import struct Kingfisher.KFImage
 struct ContentView: View {
     
     @StateObject var fetchData = FetchData()
-    @State var crop = Crop()
+    //@State var person = Person()
     
     var body: some View {
         VStack {
             VStack {
-                
+                Text("hello")
                 //Crop name text
-                Text(crop.name?? "PlantCare")
-                    .bold()
+                //Text(person.name ?? "HP Char")
+                    //.bold()
                 //Image
-                KFImage(crop.image)
+                /*KFImage(person.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 50, alignment: .center)
+                    .frame(width: 100, height: 50, alignment: .center)*/
             }
             NavigationView {
                 
-                List(fetchData.responses.crops){crop in
-                    NavigationLink(destination: CropDetail(crop: $crop),
+                List(fetchData.responses.people){person in
+                    NavigationLink(destination: CropDetail(person: person),
                                    label: {HStack{
-                                    KFImage(crop.image)
+                                    /*KFImage(person.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 100, height: 50, alignment: .center)
-                                    Text(crop.name ?? "No Name")
+                                        .frame(width: 100, height: 50, alignment: .center)*/
+                                    Text(person.name ?? "No Name")
                                    }})
                    // NavigationLink(destination: CropDetail(info: )) --> add info in here i guess?
                     

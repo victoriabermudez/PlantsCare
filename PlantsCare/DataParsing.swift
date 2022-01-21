@@ -8,7 +8,7 @@ import Foundation
 
 class FetchData : ObservableObject{
     
-    @Published var responses : Response = Response()
+    var responses : Response = Response()
     
     init(){
         guard let url = URL(string: "https://hp-api.herokuapp.com/api/characters") else {return}
@@ -27,10 +27,10 @@ class FetchData : ObservableObject{
             //decoding
             let decoder = JSONDecoder()
             
-            if let response = try? decoder.decode(Response.self, from: data) {
+            if let response = try? decoder.decode([[String: Response]].self, from: data) {
                 DispatchQueue.main.async {
-                    self.responses = response
-                    print(self.responses.totalResults)
+                    //self.responses = response[0]
+                    print(response)
                 }
             }
             else{
@@ -44,18 +44,25 @@ class FetchData : ObservableObject{
 }
 
 struct Response : Codable{
+    var people : [Person] = [Person]()
     
-    var crops : [Crop] = [Crop]()
-    var totalResults : Int = 0
+//    init(from decoder: Decoder) throws {
+//        var container = try decoder.unkeyedContainer()
+//        people = try container.decode([Person].self)
+//    }
+//   // var crops : [Crop] = [Crop]()
+    //var totalResults : Int = 0
     
 }
 
-struct Crop : Codable{
+struct Person : Codable{
     
     var name : String?
+    
+    
     //var scientific_name : String?
     //var has_photos: Bool?
-    var image : URL?
+    //var image : URL?
     //var alternate_names: String? //this is rly inconsisteht...
     //var description: String?
     //var plantings_count: String? //
@@ -64,7 +71,7 @@ struct Crop : Codable{
 }
 
 // add an extension to the article struct so that we can use an array of articles to dynamically create List.
-extension Crop: Identifiable{
+extension Person: Identifiable{
     
     var id: String {return name!}
     

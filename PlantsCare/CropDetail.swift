@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CropDetail: View {
-    @Binding var crop : Crop
+    var person : Person
 
     var body: some View {
         VStack{
             //picture
             HStack {
                 Text("Name: ")
-                Text(crop.name ?? "NA")
+                Text(person.name ?? "NA")
             }
             }
             
@@ -25,6 +25,6 @@ struct CropDetail: View {
 
 struct CropDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CropDetail(crop: Binding.constant(Crop()))
+        CropDetail(person: Person())
     }
 }
