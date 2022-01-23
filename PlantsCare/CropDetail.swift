@@ -11,72 +11,78 @@ import struct Kingfisher.KFImage
 struct CropDetail: View {
     //var result : Result? = Result()
     @State var res : Result
-
+    
     var body: some View {
-        VStack{
-            KFImage(/*URL(string: */res.image)
+        ZStack{
+            Image("Background")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-            HStack {
-                Text("Name: ")
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black) //changes the color of the text to black
-                    .multilineTextAlignment(.center) //aligns the text to center
-                    .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                    .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                    .font(.system(.title, design: .rounded)) //makes the font have rounded edges
-                Text(res.name ?? "NA")
-                    .foregroundColor(Color.purple) //makes this text have a purple color
-            }
-            HStack {
-                Text("Status: ")
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black) //changes the color of the text to black
-                    .multilineTextAlignment(.center) //aligns the text to center
-                    .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                    .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                    .font(.system(.title, design: .rounded)) //rounds font
-                Text(res.status ?? "NA")
-                    .foregroundColor(Color.purple)
-            }
-            HStack {
-                Text("Species: ")
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black) //changes the color of the text to black
-                    .multilineTextAlignment(.center) //aligns the text to center
-                    .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                    .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                    .font(.system(.title, design: .rounded)) //rounds font
-                Text(res.species ?? "NA")
-                    .foregroundColor(Color.purple)
-            }
-            HStack {
-                Text("Gender: ")
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black) //changes the color of the text to black
-                    .multilineTextAlignment(.center) //aligns the text to center
-                    .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                    .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                    .font(.system(.title, design: .rounded)) //rounds font
-                Text(res.gender ?? "NA")
-                    .foregroundColor(Color.purple)
-            }
-            HStack {
-                Text("Origin: ")
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black) //changes the color of the text to black
-                    .multilineTextAlignment(.center) //aligns the text to center
-                    .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                    .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                    .font(.system(.title, design: .rounded)) //rounds font
-                Text(res.origin.name ?? "NA")
-                    .foregroundColor(Color.purple)
-            }
-            }
+                .edgesIgnoringSafeArea(.all)
             
+            VStack{
+                KFImage(/*URL(string: */res.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                HStack {
+                    Text("Name: ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black) //changes the color of the text to black
+                        .multilineTextAlignment(.center) //aligns the text to center
+                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                        .font(.system(.title, design: .rounded)) //makes the font have rounded edges
+                    Text(res.name ?? "NA")
+                        .foregroundColor(Color.purple) //makes this text have a purple color
+                }
+                HStack {
+                    Text("Status: ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black) //changes the color of the text to black
+                        .multilineTextAlignment(.center) //aligns the text to center
+                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                        .font(.system(.title, design: .rounded)) //rounds font
+                    Text(res.status ?? "NA")
+                        .foregroundColor(Color.purple)
+                }
+                HStack {
+                    Text("Species: ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black) //changes the color of the text to black
+                        .multilineTextAlignment(.center) //aligns the text to center
+                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                        .font(.system(.title, design: .rounded)) //rounds font
+                    Text(res.species ?? "NA")
+                        .foregroundColor(Color.purple)
+                }
+                HStack {
+                    Text("Gender: ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black) //changes the color of the text to black
+                        .multilineTextAlignment(.center) //aligns the text to center
+                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                        .font(.system(.title, design: .rounded)) //rounds font
+                    Text(res.gender ?? "NA")
+                        .foregroundColor(Color.purple)
+                }
+                HStack {
+                    Text("Origin: ")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black) //changes the color of the text to black
+                        .multilineTextAlignment(.center) //aligns the text to center
+                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                        .font(.system(.title, design: .rounded)) //rounds font
+                    Text(res.origin.name ?? "NA")
+                        .foregroundColor(Color.purple)
+                }
+            }
         }
+        
     }
+}
 
 
 //struct CropDetail_Previews: PreviewProvider {

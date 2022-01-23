@@ -13,38 +13,42 @@ struct ContentView: View {
     @State var res = Result()
     
     var body: some View {
-        VStack{
-            Text("Rick & Morty")
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-        NavigationView{
-         //   Image("Background")
-           //     .resizable()
-             //   .edgesIgnoringSafeArea(.all)
-                List(fetchData.responses.results){result in
-                NavigationLink(
-                    destination: CropDetail(res : result),
-                    label: {
-                        HStack{
-                            //Text("hello")
-                            KFImage(/*URL(string: */result.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 50)
-                            Text(result.name ?? "no name")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color.black) //changes the color of the text to black
-                                .multilineTextAlignment(.center) //aligns the text to center
-                                .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
-                                .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
-                                .font(.system(.subheadline, design: .rounded)) //rounds font
-
-                            
-                        }
+        ZStack{
+            Image("Background")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("Rick & Morty")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                NavigationView{
+                    
+                    List(fetchData.responses.results){result in
+                        NavigationLink(
+                            destination: CropDetail(res : result),
+                            label: {
+                                HStack{
+                                    //Text("hello")
+                                    KFImage(/*URL(string: */result.image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100, height: 50)
+                                    Text(result.name ?? "no name")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.black) //changes the color of the text to black
+                                        .multilineTextAlignment(.center) //aligns the text to center
+                                        .shadow(color: .green, radius: 0.5, x: 0, y: 2) //adds a dropshadow to the text
+                                        .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
+                                        .font(.system(.subheadline, design: .rounded)) //rounds font
+                                    
+                                    
+                                }
+                            }
+                        )
                     }
-                )
+                    
+                }
             }
         }
-    }
     }
 }
 
