@@ -1,56 +1,41 @@
 //
 //  ContentView.swift
-//  PlantsCare
+//  JSON 121521
 //
-//  Created by Victoria Bermudez (student LM) on 1/4/22.
+//  Created by Angela Ge (student LM) on 12/15/21.
 //
 
 import SwiftUI
 import struct Kingfisher.KFImage
 
 struct ContentView: View {
-    
     @StateObject var fetchData = FetchData()
-    //@State var person = Person()
+    @State var res = Result()
     
     var body: some View {
-        VStack {
-            VStack {
-                Text("hello")
-                //Crop name text
-                //Text(person.name ?? "HP Char")
-                    //.bold()
-                //Image
-                /*KFImage(person.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 50, alignment: .center)*/
-            }
-          /**  NavigationView {
+        NavigationView{
+            List(fetchData.responses.results){result in
+                NavigationLink(
+                    destination: CropDetail(res : result),
+                    label: {
+                        HStack{
+                            Text(result.name ?? "no name")
+                            //Text("hello")
+                            KFImage(/*URL(string: */result.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 50)
+                        }
+                    }
+                )
                 
-                List(fetchData.responses.people){person in
-                    NavigationLink(destination: CropDetail(person: person),
-                                   label: {HStack{
-                                    /*KFImage(person.image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 100, height: 50, alignment: .center)*/
-                                    Text(person.name ?? "No Name")
-                                   }})
-                   // NavigationLink(destination: CropDetail(info: )) --> add info in here i guess?
-                    
             }
-        }*/
-            
+        }
     }
 }
 
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
-
-
 }

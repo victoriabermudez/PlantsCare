@@ -6,16 +6,37 @@
 //
 
 import SwiftUI
+import struct Kingfisher.KFImage
 
 struct CropDetail: View {
-    var person : Person
+    //var result : Result? = Result()
+    @State var res : Result
 
     var body: some View {
         VStack{
-            //picture
+            KFImage(/*URL(string: */res.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200, height: 200)
             HStack {
                 Text("Name: ")
-                Text(person.name ?? "NA")
+                Text(res.name ?? "NA")
+            }
+            HStack {
+                Text("Status: ")
+                Text(res.status ?? "NA")
+            }
+            HStack {
+                Text("Species: ")
+                Text(res.species ?? "NA")
+            }
+            HStack {
+                Text("Gender: ")
+                Text(res.gender ?? "NA")
+            }
+            HStack {
+                Text("Origin: ")
+                Text(res.origin.name ?? "NA")
             }
             }
             
@@ -23,8 +44,8 @@ struct CropDetail: View {
     }
 
 
-struct CropDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        CropDetail(person: Person())
-    }
-}
+//struct CropDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CropDetail(res: Binding.constant(Result()))
+//    }
+//}

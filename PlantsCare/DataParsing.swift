@@ -1,82 +1,65 @@
 //
-//  DataParsing.swift
-//  PlantsCare
+//  data parsing.swift
+//  JSON 121521
 //
-//  Created by Michelle Kelly (student LM) on 1/10/22.
+//  Created by Angela Ge (student LM) on 12/15/21.
+//
 
 import Foundation
 
 class FetchData : ObservableObject{
     
-    var responses : Response?
+    @Published var responses : Response = Response()
     
-    init(){
-        guard let url = URL(string: "https://hp-api.herokuapp.com/api/characters") else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, response, errors) in
-            
-            guard var data = data else {
+        init(){
+            guard let url = URL(string: "https://rickandmortyapi.com/api/character") else {
                 print("no data")
-                return
-                
-            }
-            
-            // clean up the JSON so that it can be decoded!
-            // if you want to see what the structure looks like now, uncomment the line that
-            // says print(dataAsString) and paste the results in make json pretty, just
-            // don't include the stuff that prints before it.
-            guard var dataAsString = String(data: data, encoding: .utf8) else {return}
-            dataAsString = "{ \"people\" : " + dataAsString + "}"
-            //print()
-            //print(dataAsString)
-            
-            data = dataAsString.data(using: .utf8)!
+                return}
             
             
-            //decoding
-            let decoder = JSONDecoder()
-            
-            if let response = try? decoder.decode(Response.self, from: data) {
-                DispatchQueue.main.async {
-                    self.responses = response
-                    //print(response)
+            URLSession.shared.dataTask(with: url) { (data, response, errors) in
+                guard let data = data else {
+                   //print("error")
+                    return
                 }
-            }
-            else{
-                print("no data")
-            }
-            
-            
-            
-        }.resume()
+                
+                //guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+                
+                
+                
+                let decoder = JSONDecoder()
+                if let response = try? decoder.decode(Response.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.responses = response
+                    }
+                }
+                else{
+                    print("Can't decode JSON")
+                }
+                
+                
+            }.resume() //if you don't have this it'll just schedule it it won't actually execute
     }
-    
 }
 
-struct Response : Codable{
-    var people : [Person] = [Person]()
+struct Response: Codable{
+    var results : [Result] = [Result]()
 }
 
-struct Person : Codable{
-    
+struct Result: Codable{
+    var id : Int?
     var name : String?
-    
-    
-    //var scientific_name : String?
-    //var has_photos: Bool?
-    //var image : URL?
-    //var alternate_names: String? //this is rly inconsisteht...
-    //var description: String?
-    //var plantings_count: String? //
-    //var harvests_count: String? //
-    
+    var status : String?
+    var species : String?
+    var gender : String?
+    var origin : Origin = Origin()
+    var image : URL? //= "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
 }
 
-// add an extension to the article struct so that we can use an array of articles to dynamically create List.
-extension Person: Identifiable{
-    
-    var id: String {return name!}
-    
+struct Origin: Codable{
+    var name: String?
 }
 
-
+extension Result : Identifiable{
+    var idd: String {return name!}
+}
