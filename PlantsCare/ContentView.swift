@@ -18,7 +18,7 @@ struct ContentView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                Text("Rick & Morty")
+                Text("Rick & MOREty")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 NavigationView{
                     
@@ -45,7 +45,8 @@ struct ContentView: View {
                             }
                         )
                     }
-                    
+                    .navigationBarTitle("")
+                            .navigationBarHidden(true)
                 }
             }
         }

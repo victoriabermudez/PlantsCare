@@ -32,7 +32,8 @@ struct CropDetail: View {
                         .shadow(color: .blue, radius: 0.5, x: 0, y: 2.1) //adds a dropshadow to the text
                         .font(.system(.title, design: .rounded)) //makes the font have rounded edges
                     Text(res.name ?? "NA")
-                        .foregroundColor(Color.purple) //makes this text have a purple color
+                        .foregroundColor(Color.purple)
+                        .fontWeight(.bold)//makes this text have a purple color
                 }
                 HStack {
                     Text("Status: ")
@@ -44,6 +45,7 @@ struct CropDetail: View {
                         .font(.system(.title, design: .rounded)) //rounds font
                     Text(res.status ?? "NA")
                         .foregroundColor(Color.purple)
+                        .fontWeight(.bold)
                 }
                 HStack {
                     Text("Species: ")
@@ -55,6 +57,7 @@ struct CropDetail: View {
                         .font(.system(.title, design: .rounded)) //rounds font
                     Text(res.species ?? "NA")
                         .foregroundColor(Color.purple)
+                        .fontWeight(.bold)
                 }
                 HStack {
                     Text("Gender: ")
@@ -66,6 +69,7 @@ struct CropDetail: View {
                         .font(.system(.title, design: .rounded)) //rounds font
                     Text(res.gender ?? "NA")
                         .foregroundColor(Color.purple)
+                        .fontWeight(.bold)
                 }
                 HStack {
                     Text("Origin: ")
@@ -77,6 +81,7 @@ struct CropDetail: View {
                         .font(.system(.title, design: .rounded)) //rounds font
                     Text(res.origin.name ?? "NA")
                         .foregroundColor(Color.purple)
+                        .fontWeight(.bold)
                 }
             }
         }
